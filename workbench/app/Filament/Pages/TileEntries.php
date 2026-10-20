@@ -61,6 +61,7 @@ class TileEntries extends Page
                     ]),
                 Section::make('Campaign')
                     ->description('U.S. States entries, side by side.')
+                    ->extraAttributes(['data-focus' => 'us-states-entries'])
                     ->columns(2)
                     ->schema([
                         UsStatesHeatmapEntry::make('lead_distribution')

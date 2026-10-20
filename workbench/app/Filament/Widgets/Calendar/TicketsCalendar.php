@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Workbench\App\Filament\Widgets\Calendar;
 
 use Awcodes\Thermal\Widgets\CalendarHeatmapWidget;
+use Carbon\CarbonImmutable;
 use Workbench\App\Support\SampleData;
 
 class TicketsCalendar extends CalendarHeatmapWidget
@@ -29,5 +30,10 @@ class TicketsCalendar extends CalendarHeatmapWidget
     protected function getThresholds(): array
     {
         return [5, 10, 15, 20];
+    }
+
+    protected function getEndDate(): CarbonImmutable
+    {
+        return SampleData::today();
     }
 }

@@ -14,6 +14,9 @@ states and Washington, D.C. It is built from values keyed by state:
 
 ## Widget
 
+![A U.S. States heatmap widget titled Lead activity across the U.S., showing every state and D.C. as an amber tile labeled with its abbreviation, arranged in the rough shape of the country](assets/us-states-widget-light.png#gh-light-mode-only)
+![A U.S. States heatmap widget titled Lead activity across the U.S., showing every state and D.C. as an amber tile labeled with its abbreviation, arranged in the rough shape of the country](assets/us-states-widget-dark.png#gh-dark-mode-only)
+
 Extend `UsStatesHeatmapWidget` and return your data. The layout is already provided:
 
 ```php
@@ -49,6 +52,9 @@ UsStatesHeatmapEntry::make('lead_distribution')
     ->unit('lead');
 ```
 
+![A Campaign section with two U.S. States entries side by side: Lead distribution in amber and Conversions in green](assets/us-states-entries-light.png#gh-light-mode-only)
+![A Campaign section with two U.S. States entries side by side: Lead distribution in amber and Conversions in green](assets/us-states-entries-dark.png#gh-dark-mode-only)
+
 ## State keys
 
 Tiles are keyed by USPS abbreviation, such as `CA` and `DC`. Data keys are also matched:
@@ -68,6 +74,12 @@ name, such as `California — 1,284 leads`.
 The states sit on an 11-column, 8-row square tile grid, the widely used tile map
 convention. Every state keeps its rough neighbors, Alaska and Hawaii sit at the top and
 bottom of the western edge, and Washington, D.C. sits directly below Maryland.
+
+On a narrow screen the tiles shrink to their minimum size, and the map scrolls sideways
+inside the widget rather than wrapping:
+
+![The U.S. States widget at phone width, with the map cut off at the right edge of the widget where it scrolls, showing the western and central states](assets/us-states-mobile-light.png#gh-light-mode-only)
+![The U.S. States widget at phone width, with the map cut off at the right edge of the widget where it scrolls, showing the western and central states](assets/us-states-mobile-dark.png#gh-dark-mode-only)
 
 The layout is available on its own as `Awcodes\Thermal\Layouts\UsStatesLayout`, for
 example to pass to a `TileHeatmapEntry` or to extend.

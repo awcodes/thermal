@@ -88,6 +88,9 @@ state names.
 
 ## Widget
 
+![A tile heatmap widget titled Requests per rack, showing four rows of ten green rack tiles labeled A1 to D10, split by an empty aisle row and an empty aisle column](assets/tile-widget-light.png#gh-light-mode-only)
+![A tile heatmap widget titled Requests per rack, showing four rows of ten green rack tiles labeled A1 to D10, split by an empty aisle row and an empty aisle column](assets/tile-widget-dark.png#gh-dark-mode-only)
+
 Extend `TileHeatmapWidget`, return a layout from `getLayout()` and your values from
 `getData()`:
 

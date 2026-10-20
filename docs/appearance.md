@@ -58,6 +58,9 @@ protected function getLegendMoreLabel(): ?string
 }
 ```
 
+![A Power draw tile heatmap in red using custom thresholds, with its legend labeled Cool and Hot instead of Less and More](assets/custom-thresholds-light.png#gh-light-mode-only)
+![A Power draw tile heatmap in red using custom thresholds, with its legend labeled Cool and Hot instead of Less and More](assets/custom-thresholds-dark.png#gh-dark-mode-only)
+
 or use `legendLabels()` on an entry:
 
 ```php

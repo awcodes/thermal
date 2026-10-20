@@ -32,13 +32,16 @@ class CalendarEntries extends Page
             ->components([
                 Section::make('Customer activity')
                     ->description('Calendar entries in a read-only schema, as on a record view page.')
+                    ->extraAttributes(['data-focus' => 'calendar-entries'])
                     ->schema([
                         CalendarHeatmapEntry::make('orders')
+                            ->endDate(SampleData::today())
                             ->label('Orders over the last year')
                             ->color('success')
                             ->unit('order'),
                         Grid::make(2)->schema([
                             CalendarHeatmapEntry::make('logins')
+                                ->endDate(SampleData::today())
                                 ->label('Logins, last 12 weeks (missing days filled with 0)')
                                 ->weeks(12)
                                 ->weekStartsOn(1)
@@ -47,6 +50,7 @@ class CalendarEntries extends Page
                                 ->legendLabels('Quiet', 'Busy')
                                 ->fillMissing(0),
                             CalendarHeatmapEntry::make('reviews')
+                                ->endDate(SampleData::today())
                                 ->label('Reviews, last 12 weeks (data closure)')
                                 ->data(fn (): array => SampleData::daily(84, seed: 8))
                                 ->weeks(12)
@@ -68,6 +72,7 @@ class CalendarEntries extends Page
                 ->modalCancelActionLabel('Close')
                 ->schema([
                     CalendarHeatmapEntry::make('activity')
+                        ->endDate(SampleData::today())
                         ->hiddenLabel()
                         ->data(fn (): array => SampleData::daily(seed: 9))
                         ->color('primary')

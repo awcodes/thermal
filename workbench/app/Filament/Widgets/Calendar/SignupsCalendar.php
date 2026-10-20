@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Workbench\App\Filament\Widgets\Calendar;
 
 use Awcodes\Thermal\Widgets\CalendarHeatmapWidget;
+use Carbon\CarbonImmutable;
 use Workbench\App\Support\SampleData;
 
 class SignupsCalendar extends CalendarHeatmapWidget
@@ -24,5 +25,10 @@ class SignupsCalendar extends CalendarHeatmapWidget
     protected function getData(): array
     {
         return SampleData::sparse();
+    }
+
+    protected function getEndDate(): CarbonImmutable
+    {
+        return SampleData::today();
     }
 }

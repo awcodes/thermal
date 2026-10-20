@@ -44,4 +44,9 @@ class CommitsCalendar extends CalendarHeatmapWidget
     {
         return $cell->hasValue() ? "{$cell->getFormattedValue()} — click to select" : null;
     }
+
+    protected function getEndDate(): CarbonImmutable
+    {
+        return SampleData::today();
+    }
 }

@@ -48,6 +48,12 @@ CalendarHeatmapEntry::make('activity')->fillMissing(0);
 
 Leave it as `null`, the default, to keep those cells missing.
 
+In this calendar, weekdays report a value or an explicit zero, and weekends report nothing.
+The zero days are solid gray squares and the missing weekend days are outlined:
+
+![A Deployments calendar where weekday rows mix amber cells with solid gray zero cells, and the Saturday and Sunday rows are empty outlined squares](assets/zero-and-missing-light.png#gh-light-mode-only)
+![A Deployments calendar where weekday rows mix amber cells with solid gray zero cells, and the Saturday and Sunday rows are empty outlined squares](assets/zero-and-missing-dark.png#gh-dark-mode-only)
+
 ## Intensity levels
 
 Each cell is drawn at one of five levels. Level 0 is the baseline for zero, negative and
@@ -71,6 +77,12 @@ Ranking the *distinct* values handles both cases, so it is predictable on skewed
 sparse data and on data with many duplicates. In the outlier example above, the daily values
 spread across levels 1 to 4, and the launch day sits at level 4 with the busiest ordinary
 days.
+
+This calendar includes one launch day of 5,000 downloads. The rest of the year still spreads
+across all four levels:
+
+![A Downloads calendar in red with a full range of shades across the year, despite one launch day far above every other value](assets/automatic-scaling-light.png#gh-light-mode-only)
+![A Downloads calendar in red with a full range of shades across the year, despite one launch day far above every other value](assets/automatic-scaling-dark.png#gh-dark-mode-only)
 
 The trade-off is that levels describe rank, not magnitude: level 4 means "among the highest
 values shown", not "close to the maximum". When the actual size of the values matters, use

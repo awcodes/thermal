@@ -7,10 +7,19 @@ namespace Workbench\App\Support;
 use Carbon\CarbonImmutable;
 
 /**
- * Deterministic fixture data, so the Workbench looks the same on every load.
+ * Deterministic fixture data, so the Workbench looks the same on every load and the
+ * documentation screenshots are reproducible.
  */
 final class SampleData
 {
+    /**
+     * The day every Workbench calendar ends on, instead of the real today.
+     */
+    public static function today(): CarbonImmutable
+    {
+        return CarbonImmutable::parse('2026-10-20');
+    }
+
     /**
      * A busy weekday, quieter weekend pattern with some noise.
      *
@@ -78,7 +87,7 @@ final class SampleData
     public static function outlier(int $days = 365, int $seed = 4): array
     {
         $data = self::daily($days, $seed);
-        $data[CarbonImmutable::today()->subDays(40)->toDateString()] = 5_000;
+        $data[self::today()->subDays(40)->toDateString()] = 5_000;
 
         return $data;
     }
@@ -107,7 +116,7 @@ final class SampleData
      */
     private static function days(int $days): iterable
     {
-        $today = CarbonImmutable::today();
+        $today = self::today();
 
         for ($offset = $days - 1; $offset >= 0; $offset--) {
             yield $today->subDays($offset);

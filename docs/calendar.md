@@ -14,6 +14,9 @@ by default. It is built from values keyed by date:
 
 See [Data and scaling](data-and-scaling.md) for how keys and values are interpreted.
 
+![A calendar heatmap widget titled Orders, showing a year of daily orders as green cells in week columns, with month names above, Mon, Wed and Fri down the side, and a Less to More legend](assets/calendar-widget-light.png#gh-light-mode-only)
+![A calendar heatmap widget titled Orders, showing a year of daily orders as green cells in week columns, with month names above, Mon, Wed and Fri down the side, and a Less to More legend](assets/calendar-widget-dark.png#gh-dark-mode-only)
+
 ## Widget
 
 Extend `CalendarHeatmapWidget` and return your data from `getData()`:
@@ -91,6 +94,9 @@ CalendarHeatmapEntry::make('activity')
     ->color('success')
     ->unit('order');
 ```
+
+![A Customer activity section with a year-long calendar entry above two 12-week calendar entries side by side, one in blue with Quiet and Busy legend labels and one in amber](assets/calendar-entries-light.png#gh-light-mode-only)
+![A Customer activity section with a year-long calendar entry above two 12-week calendar entries side by side, one in blue with Quiet and Busy legend labels and one in amber](assets/calendar-entries-dark.png#gh-dark-mode-only)
 
 `weeks()`, `weekStartsOn()` and `endDate()` match the widget options above, and each
 accepts a closure. Entries are read-only: selection is only available on widgets.

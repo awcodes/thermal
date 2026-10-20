@@ -33,6 +33,9 @@ protected function cellDeselected(string $key): void
 }
 ```
 
+![An interactive Store openings U.S. States widget with Texas selected: the TX tile is outlined and the description reads Selected Texas. Select it again to clear.](assets/cell-selection-light.png#gh-light-mode-only)
+![An interactive Store openings U.S. States widget with Texas selected: the TX tile is outlined and the description reads Selected Texas. Select it again to clear.](assets/cell-selection-dark.png#gh-dark-mode-only)
+
 The key of the selected cell is available as the public `$selectedCell` property, which is
 null when nothing is selected. The key always has the cell's own form: an ISO date such as
 `2026-10-06` for the calendar, or the tile key such as `CA`. One cell can be selected at a

@@ -52,3 +52,11 @@ it('rejects tiles without a key or outside the grid', function (Closure $make) {
     'row zero' => [fn () => Tile::make('a', 'A', 0, 1)],
     'negative column' => [fn () => Tile::make('a', 'A', 1, -1)],
 ])->throws(InvalidArgumentException::class);
+
+it('resolves data keys exactly by default', function () {
+    $layout = new TileLayout([Tile::make('east-1', 'E1', 1, 1), Tile::make('7', 'Seven', 1, 2)]);
+
+    expect($layout->resolveKey('east-1'))->toBe('east-1')
+        ->and($layout->resolveKey('EAST-1'))->toBeNull()
+        ->and($layout->resolveKey(7))->toBe('7');
+});

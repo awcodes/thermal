@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Workbench\App\Filament\Pages;
 
 use Awcodes\Thermal\Entries\TileHeatmapEntry;
+use Awcodes\Thermal\Entries\UsStatesHeatmapEntry;
+use Awcodes\Thermal\Layouts\UsStatesLayout;
 use BackedEnum;
 use Filament\Actions\Action;
 use Filament\Pages\Page;
@@ -56,6 +58,22 @@ class TileEntries extends Page
                                 ->unit('hour')
                                 ->legend(false),
                         ]),
+                    ]),
+                Section::make('Campaign')
+                    ->description('U.S. States entries, side by side.')
+                    ->columns(2)
+                    ->schema([
+                        UsStatesHeatmapEntry::make('lead_distribution')
+                            ->label('Lead distribution')
+                            ->data(fn (): array => SampleData::perKey(array_keys((new UsStatesLayout)->getTiles()), 10, 900, seed: 11))
+                            ->color('primary')
+                            ->unit('lead'),
+                        UsStatesHeatmapEntry::make('conversions')
+                            ->label('Conversions (custom thresholds)')
+                            ->data(fn (): array => SampleData::perKey(array_keys((new UsStatesLayout)->getTiles()), 0, 40, seed: 12))
+                            ->thresholds([5, 10, 20, 30])
+                            ->color('success')
+                            ->unit('conversion'),
                     ]),
             ]);
     }

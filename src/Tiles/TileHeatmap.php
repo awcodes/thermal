@@ -130,8 +130,9 @@ final class TileHeatmap
     }
 
     /**
-     * Keeps the values for tiles in the layout. Keys the layout does not contain are left out
-     * of the heatmap and its scale, and numeric strings from database drivers are cast.
+     * Keeps the values for tiles in the layout, keyed as the layout resolves them. Keys the
+     * layout does not contain are left out of the heatmap and its scale, numeric strings from
+     * database drivers are cast, and values for the same tile are added together.
      *
      * @param  array<array-key, mixed>  $data
      * @return array<string, int | float | null>
@@ -141,9 +142,9 @@ final class TileHeatmap
         $values = [];
 
         foreach ($data as $key => $value) {
-            $key = (string) $key;
+            $tileKey = $this->layout->resolveKey($key);
 
-            if (! $this->layout->hasTile($key)) {
+            if ($tileKey === null) {
                 continue;
             }
 
@@ -155,7 +156,9 @@ final class TileHeatmap
                 throw new InvalidArgumentException("Tile heatmap values must be numeric or null, [{$key}] is not.");
             }
 
-            $values[$key] = $value;
+            $values[$tileKey] = $value === null
+                ? ($values[$tileKey] ?? null)
+                : ($values[$tileKey] ?? 0) + $value;
         }
 
         return $values;

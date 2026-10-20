@@ -21,6 +21,7 @@ use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Workbench\App\Filament\Pages\Auth\Login;
 use Workbench\App\Filament\Pages\CalendarDashboard;
 use Workbench\App\Filament\Pages\CalendarEntries;
+use Workbench\App\Filament\Pages\StatesDashboard;
 use Workbench\App\Filament\Pages\TileDashboard;
 use Workbench\App\Filament\Pages\TileEntries;
 
@@ -42,6 +43,7 @@ class AdminPanelProvider extends PanelProvider
                 CalendarEntries::class,
                 TileDashboard::class,
                 TileEntries::class,
+                StatesDashboard::class,
             ])
             ->middleware([
                 EncryptCookies::class,

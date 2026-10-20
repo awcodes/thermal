@@ -43,6 +43,17 @@ class TileLayout
     }
 
     /**
+     * The tile key a data key refers to, or null when the layout has no such tile. Keys match
+     * exactly by default; override this to accept aliases, such as lowercase abbreviations.
+     */
+    public function resolveKey(int | string $key): ?string
+    {
+        $key = (string) $key;
+
+        return $this->hasTile($key) ? $key : null;
+    }
+
+    /**
      * The number of rows the layout spans, counted from row 1.
      */
     final public function getRows(): int

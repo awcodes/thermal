@@ -1,0 +1,7 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^PHPDoc type class\-string\<Workbench\\App\\Models\\User\> of property Workbench\\Database\\Factories\\UserFactory\:\:\$model is not covariant with PHPDoc type class\-string\<TModel of Workbench\\App\\Models\\User\> of overridden property Illuminate\\Database\\Eloquent\\Factories\\Factory\<TModel of Workbench\\App\\Models\\User\>\:\:\$model\.$#'
+			identifier: property.phpDocType
+			count: 1
+			path: workbench/database/factories/UserFactory.php

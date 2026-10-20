@@ -27,8 +27,11 @@
     }}
 >
     <div class="mx-auto grid w-fit max-w-full gap-2">
-        {{-- Tiles shrink with the container down to a minimum size, then scroll, so the geometry never wraps. --}}
-        <div class="overflow-x-auto">
+        {{--
+            Tiles shrink with the container down to a minimum size, then scroll, so the geometry never wraps.
+            The padding, offset by a negative margin, keeps focus and selection outlines on edge tiles from being clipped.
+        --}}
+        <div class="-m-1 overflow-x-auto p-1">
             <x-thermal::grid
                 :interactive="$interactive"
                 class="grid w-fit gap-1"

@@ -24,8 +24,11 @@
             ])
     }}
 >
-    {{-- Narrow containers scroll horizontally, starting at the most recent week. --}}
-    <div x-init="$el.scrollLeft = $el.scrollWidth" class="overflow-x-auto">
+    {{--
+        Narrow containers scroll horizontally, starting at the most recent week. The padding,
+        offset by a negative margin, keeps focus and selection outlines on edge cells from being clipped.
+    --}}
+    <div x-init="$el.scrollLeft = $el.scrollWidth" class="-m-1 overflow-x-auto p-1">
         <x-thermal::grid
             :interactive="$interactive"
             class="grid justify-start gap-0.75 text-xs text-gray-500 dark:text-gray-400"

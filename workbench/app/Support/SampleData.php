@@ -84,6 +84,25 @@ final class SampleData
     }
 
     /**
+     * One value per key, spread fairly evenly between the bounds.
+     *
+     * @param  iterable<string>  $keys
+     * @return array<string, int>
+     */
+    public static function perKey(iterable $keys, int $min = 20, int $max = 400, int $seed = 1): array
+    {
+        mt_srand($seed);
+
+        $data = [];
+
+        foreach ($keys as $key) {
+            $data[$key] = mt_rand($min, $max);
+        }
+
+        return $data;
+    }
+
+    /**
      * @return iterable<CarbonImmutable>
      */
     private static function days(int $days): iterable

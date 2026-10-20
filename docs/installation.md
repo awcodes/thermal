@@ -45,6 +45,15 @@ packages:
 
 Then rebuild your assets so the new classes are compiled in.
 
+## Publishing the translations
+
+Level names such as "high activity", "no data", the legend labels and the default calendar
+tooltip are translation strings. To change their wording or add a language, publish them:
+
+```bash
+php artisan vendor:publish --tag="thermal-translations"
+```
+
 ## Publishing the views
 
 Publishing the views is optional, and only needed if you want to change the components'

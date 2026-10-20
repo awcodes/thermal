@@ -5,3 +5,15 @@ title: Thermal
 navigation:
   - index
   - installation
+
+  - label: Visualizations
+    children:
+      - calendar
+      - tiles
+      - us-states
+
+  - label: Customizing
+    children:
+      - data-and-scaling
+      - appearance
+      - interaction

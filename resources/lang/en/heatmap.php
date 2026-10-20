@@ -14,6 +14,11 @@ return [
         4 => 'very high activity',
     ],
 
+    'calendar' => [
+        'tooltip' => ':value on :date',
+        'tooltip_missing' => 'No data on :date',
+    ],
+
     'legend' => [
         'less' => 'Less',
         'more' => 'More',

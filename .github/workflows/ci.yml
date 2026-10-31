@@ -3,7 +3,7 @@ name: CI
 on:
   push:
     branches:
-      - main
+      - 1.x
     paths:
       - "src/**"
       - "resources/**"
@@ -25,7 +25,7 @@ on:
       - ".github/workflows/**"
   pull_request:
     branches:
-      - main
+      - 1.x
     paths:
       - "src/**"
       - "resources/**"
@@ -48,7 +48,7 @@ on:
 
 jobs:
   ci:
-    uses: awcodes/.github/.github/workflows/filament-plugin.yml@v1
+    uses: awcodes/.github/.github/workflows/filament-plugin.yml@ad63f1536b965fed92274516cb81f172b1d60e1a # v1.4.3
     with:
       # Single-branch package supporting Filament 4 and 5, so both majors run here.
       matrix: |

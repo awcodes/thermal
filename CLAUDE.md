@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-Thermal (`awcodes/thermal`, namespace `Awcodes\Thermal`) is a Filament 4/5 package of heatmap visualizations: a GitHub-style **Calendar**, a generic explicitly positioned **Tile** heatmap, and a **U.S. States** tile layout. Each is offered as a dashboard Widget and as a read-only schema Entry. It is unreleased; breaking changes are fine.
+Thermal (`awcodes/thermal`, namespace `Awcodes\Thermal`) is a Filament 4/5 package of heatmap visualizations: a GitHub-style **Calendar**, a generic explicitly positioned **Tile** heatmap, and a **U.S. States** tile layout. Each is offered as a dashboard Widget and as a read-only schema Entry. It is released from the `1.x` branch and follows semantic versioning: no breaking changes to the public API within 1.x.
 
 ## Commands
 

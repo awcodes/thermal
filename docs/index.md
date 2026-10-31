@@ -8,9 +8,6 @@ description: Heatmap visualizations for Filament, covering calendar activity gri
 Thermal provides heatmap visualizations for Filament. It displays activity over time or
 across custom tile layouts using lightweight, theme-aware Filament components.
 
-> [!WARNING]
-> Thermal is under active development and has not been released. Its API will change.
-
 ## Visualizations
 
 Thermal ships three heatmaps. Each one is available as a dashboard widget and as a

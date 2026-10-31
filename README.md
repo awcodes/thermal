@@ -2,19 +2,21 @@
 
 Heatmap visualizations for Filament. Display activity over time or across custom tile layouts using lightweight, theme-aware Filament components.
 
-> [!WARNING]
-> Thermal is under active development and has not been released. Its API will change.
+[![Latest Version](https://img.shields.io/github/release/awcodes/thermal.svg?style=flat-square&color=blue&label=Release)](https://github.com/awcodes/thermal/releases)
+[![MIT Licensed](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](LICENSE.md)
+[![Total Downloads](https://img.shields.io/packagist/dt/awcodes/thermal.svg?style=flat-square&color=blue&label=Downloads)](https://packagist.org/packages/awcodes/thermal)
+[![GitHub Repo stars](https://img.shields.io/github/stars/awcodes/thermal?style=flat-square&color=blue&label=Stars)](https://github.com/awcodes/thermal/stargazers)
+[![Filament Version](https://img.shields.io/badge/Filament-4.x%20%26%205.x-d97706.svg?style=flat-square)](https://filamentphp.com/docs/5.x/introduction/installation)
 
-## Features
+## Documentation
 
-- **Calendar** — a GitHub-style grid of daily activity, with configurable history length and week start.
-- **Tile** — values on any explicitly positioned layout you define, such as racks, desks or machines.
-- **U.S. States** — a built-in tile map of the 50 states and Washington, D.C.
-- Every heatmap works as a dashboard **widget** and as a read-only **schema entry** for infolists, record pages and modals.
-- Automatic scaling that holds up to outliers and repeated values, or custom thresholds.
-- Zero and missing values stay visually and semantically distinct.
-- Filament colors and dark mode, a legend, tooltips, and an accessible description of every cell.
-- Opt-in, keyboard-accessible cell selection on widgets.
+The full documentation lives at **[docs.aw.codes/thermal](https://docs.aw.codes/thermal/1.x)**.
+
+## Compatibility
+
+| Filament version | Package version |
+|------------------|-----------------|
+| 4.x & 5.x        | 1.x             |
 
 ## Installation
 
@@ -22,64 +24,24 @@ Heatmap visualizations for Filament. Display activity over time or across custom
 composer require awcodes/thermal
 ```
 
-Thermal supports Filament 4.x and 5.x on PHP 8.2 or later.
+Thermal's views need to be added to your Tailwind theme as a source. See [Installation](https://docs.aw.codes/thermal/1.x/installation) for that step.
 
-Add the package's views as a source in your Filament theme's CSS file:
+## Changelog
 
-```css
-@source '../../../../vendor/awcodes/thermal/resources/**/*.blade.php';
-```
-
-## Quick start
-
-```php
-use App\Models\Lead;
-use Awcodes\Thermal\Widgets\UsStatesHeatmapWidget;
-
-class LeadActivity extends UsStatesHeatmapWidget
-{
-    protected ?string $heading = 'Lead activity across the U.S.';
-
-    protected ?string $unit = 'lead';
-
-    protected function getData(): array
-    {
-        return Lead::query()
-            ->selectRaw('state, count(*) as total')
-            ->groupBy('state')
-            ->pluck('total', 'state')
-            ->all();
-    }
-}
-```
-
-The same visualization is available in a schema:
-
-```php
-use Awcodes\Thermal\Entries\UsStatesHeatmapEntry;
-
-UsStatesHeatmapEntry::make('lead_distribution')
-    ->data(fn (Campaign $record): array => $record->leadsByState())
-    ->unit('lead');
-```
-
-## Documentation
-
-- [Installation](docs/installation.md)
-- [Calendar](docs/calendar.md)
-- [Tile](docs/tiles.md)
-- [U.S. States](docs/us-states.md)
-- [Data and scaling](docs/data-and-scaling.md)
-- [Colors, legends and tooltips](docs/appearance.md)
-- [Interaction and accessibility](docs/interaction.md)
+Please see the [releases](https://github.com/awcodes/thermal/releases) for what has changed recently.
 
 ## Contributing
 
 Please see [CONTRIBUTING](.github/CONTRIBUTING.md) for details.
 
-## Security
+## Security Vulnerabilities
 
-Please review [our security policy](.github/SECURITY.md) on how to report security vulnerabilities.
+Please review [our security policy](../../security/policy) on how to report security vulnerabilities.
+
+## Credits
+
+- [Adam Weston](https://github.com/awcodes)
+- [All Contributors](../../contributors)
 
 ## License
 

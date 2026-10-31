@@ -55,6 +55,26 @@ class OrdersHeatmap extends CalendarHeatmapWidget
 }
 ```
 
+Thermal widgets are ordinary Filament widgets, so they are displayed the same way: register
+them with the panel through `discoverWidgets()` or `widgets()` to show them on the
+dashboard, or return them from a page's `getWidgets()` or `getHeaderWidgets()`.
+
+> [!IMPORTANT]
+> On Filament 4, a widget that is only returned from a page and never registered with the
+> panel renders once, then fails with a 419 "Page Expired" on its first Livewire request,
+> such as lazy loading or selecting a cell. Livewire 3 cannot find a component that was
+> never registered. Register these widgets with Livewire without adding them to the
+> dashboard by using `discoverLivewireComponents()` or `livewireComponents()` on the panel:
+>
+> ```php
+> $panel->discoverLivewireComponents(
+>     in: app_path('Filament/Heatmaps'),
+>     for: 'App\\Filament\\Heatmaps',
+> );
+> ```
+>
+> Filament 5 does not need this step.
+
 ## Next steps
 
 - [Installation](installation.md) — install the package and register its views with your theme.

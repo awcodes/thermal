@@ -37,6 +37,10 @@ class AdminPanelProvider extends PanelProvider
             ->theme(Theme::make('workbench')->html(
                 fn (): string => route('workbench.theme'),
             ))
+            ->discoverLivewireComponents(
+                in: __DIR__ . '/../../Filament/Widgets',
+                for: 'Workbench\\App\\Filament\\Widgets',
+            )
             ->pages([
                 Dashboard::class,
                 CalendarDashboard::class,
